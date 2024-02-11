@@ -2,31 +2,30 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FallingRocks : MonoBehaviour
+public class FlySpawner : MonoBehaviour
 {
     [Header("Spawn Objects")]
-    [SerializeField] private GameObject boulder;
+    [SerializeField] private GameObject fly;
 
     [Header("Spawning Options")]
-    [SerializeField] private float fallSpeed;
     [SerializeField] private float respawnTime;
     private float respawnCount;
 
     // Start is called before the first frame update
-    private void Start()
+    void Start()
     {
         respawnCount = respawnTime;
     }
+
     // Update is called once per frame
     void Update()
     {
         respawnCount -= Time.deltaTime;
-        Debug.Log("Boulder Spawn: " + respawnCount);
+        Debug.Log("Fly Spawn: " + respawnCount);
         if (respawnCount <= 0)
         {
-            GameObject spawn = Instantiate(boulder) as GameObject;
-            spawn.transform.position = new Vector2(Random.Range(-6.5f, 6.5f), 7);
-            spawn.GetComponent<Rigidbody2D>().velocity = new Vector2(0, -fallSpeed);
+            GameObject spawn = Instantiate(fly) as GameObject;
+            spawn.transform.position = new Vector2(Random.Range(-6.5f, 6.5f), Random.Range(-4f, 4f));
             respawnCount = respawnTime;
         }
     }
