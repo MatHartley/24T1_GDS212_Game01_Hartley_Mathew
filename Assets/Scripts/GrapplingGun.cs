@@ -93,7 +93,7 @@ public class GrapplingGun : MonoBehaviour
         else //if no buttons are pressed the gun pivot should rotate to the mouse position
         {
             Vector2 mousePos = mainCamera.ScreenToWorldPoint(Input.mousePosition);
-            Debug.Log(mousePos.x + "," + mousePos.y);
+            //Debug.Log(mousePos.x + "," + mousePos.y);
             RotateGun(mousePos, true);
         }
     }
