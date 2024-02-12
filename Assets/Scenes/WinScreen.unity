@@ -658,7 +658,7 @@ GameObject:
   - component: {fileID: 768106354}
   - component: {fileID: 768106353}
   m_Layer: 5
-  m_Name: DistanceCountTXT
+  m_Name: TimeCountTXT
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1273,7 +1273,7 @@ GameObject:
   - component: {fileID: 1838913963}
   - component: {fileID: 1838913962}
   m_Layer: 5
-  m_Name: DistanceTXT
+  m_Name: TimeTXT
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1319,7 +1319,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Distance Survived
+  m_text: Time Survived
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
