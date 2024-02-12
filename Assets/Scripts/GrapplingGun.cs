@@ -50,6 +50,11 @@ public class GrapplingGun : MonoBehaviour
     [HideInInspector] public Vector2 grapplePoint;
     [HideInInspector] public Vector2 grappleDistanceVector;
 
+    [Header("Silk Management")]
+    public SilkManager silkManager;
+    [SerializeField] private int silkCost;
+
+
     private void Start()
     {
         grappleRope.enabled = false;
@@ -118,17 +123,24 @@ public class GrapplingGun : MonoBehaviour
 
     void SetGrapplePoint()
     {
-        Vector2 distanceVector = mainCamera.ScreenToWorldPoint(Input.mousePosition) - gunPivot.position;
-        if (Physics2D.Raycast(firePoint.position, distanceVector.normalized))
+        //check if the player has enough silk
+        if (silkManager.silkCurrent >= silkCost)
         {
-            RaycastHit2D _hit = Physics2D.Raycast(firePoint.position, distanceVector.normalized);
-            if (_hit.transform.gameObject.layer == grappableLayerNumber || grappleToAll)
+            //raycast to check if the grapple can hit a targettable object
+            Vector2 distanceVector = mainCamera.ScreenToWorldPoint(Input.mousePosition) - gunPivot.position;
+            if (Physics2D.Raycast(firePoint.position, distanceVector.normalized))
             {
-                if (Vector2.Distance(_hit.point, firePoint.position) <= maxDistance || !hasMaxDistance)
+                RaycastHit2D _hit = Physics2D.Raycast(firePoint.position, distanceVector.normalized);
+                if (_hit.transform.gameObject.layer == grappableLayerNumber || grappleToAll)
                 {
-                    grapplePoint = _hit.point;
-                    grappleDistanceVector = grapplePoint - (Vector2)gunPivot.position;
-                    grappleRope.enabled = true;
+                    if (Vector2.Distance(_hit.point, firePoint.position) <= maxDistance || !hasMaxDistance)
+                    {
+                        grapplePoint = _hit.point;
+                        grappleDistanceVector = grapplePoint - (Vector2)gunPivot.position;
+                        grappleRope.enabled = true;
+                        //reduce silk resource
+                        silkManager.ReduceSilk(silkCost);
+                    }
                 }
             }
         }
