@@ -11,7 +11,9 @@ GameObject:
   - component: {fileID: 4790264856040228026}
   - component: {fileID: 2204667778206238175}
   - component: {fileID: -5732718323430162826}
+  - component: {fileID: 997465660684106182}
   - component: {fileID: -7130297932337834718}
+  - component: {fileID: -4130794261349995349}
   m_Layer: 2
   m_Name: Fly
   m_TagString: Untagged
@@ -99,6 +101,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   silkReturn: 10
+--- !u!114 &997465660684106182
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8506065101040964052}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e57b15f78de8ec440b1948bcfd9f8640, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 1
+  moveCooldown: 0
+  cooldownMax: 1
 --- !u!58 &-7130297932337834718
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -134,3 +151,30 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0.21133333}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!50 &-4130794261349995349
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8506065101040964052}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
