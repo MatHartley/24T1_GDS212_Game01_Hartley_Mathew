@@ -6,12 +6,14 @@ public class Fly : MonoBehaviour
 {
     [Header("Silk Management")]
     private SilkManager silkManager;
+    private ScoreSaver scoreSaver;
     [SerializeField] private int silkReturn;
 
     // Start is called before the first frame update
     void Start()
     {
         silkManager = GameObject.FindObjectOfType<SilkManager>();
+        scoreSaver = GameObject.FindObjectOfType<ScoreSaver>();
     }
 
     // Update is called once per frame
@@ -32,6 +34,7 @@ public class Fly : MonoBehaviour
             {
                 silkManager.silkCurrent = 100;
             }
+            scoreSaver.flyCount++;
             Destroy(gameObject);
         }
     }
