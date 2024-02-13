@@ -1925,6 +1925,7 @@ GameObject:
   - component: {fileID: 2119843228}
   - component: {fileID: 2119843230}
   - component: {fileID: 2119843231}
+  - component: {fileID: 2119843232}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1992,6 +1993,21 @@ MonoBehaviour:
   silkText: {fileID: 2136777123}
   silkCurrent: 100
   silkMax: 100
+--- !u!114 &2119843232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2119843227}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d2b9dd4034125f409876d79d96b8e31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flyCount: 0
+  gameTimer: {fileID: 1540303569}
+  flyCountText: {fileID: 1545321572}
 --- !u!1 &2136777122
 GameObject:
   m_ObjectHideFlags: 0
