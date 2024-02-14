@@ -54,6 +54,9 @@ public class GrapplingGun : MonoBehaviour
     public SilkManager silkManager;
     [SerializeField] private int silkCost;
 
+    [Header("SFX")]
+    public AudioSource silkShot;
+
 
     private void Start()
     {
@@ -140,6 +143,7 @@ public class GrapplingGun : MonoBehaviour
                         grappleRope.enabled = true;
                         //reduce silk resource
                         silkManager.ReduceSilk(silkCost);
+                        silkShot.Play();
                     }
                 }
             }

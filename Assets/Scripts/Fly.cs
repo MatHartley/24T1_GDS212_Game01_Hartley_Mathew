@@ -9,11 +9,15 @@ public class Fly : MonoBehaviour
     private ScoreSaver scoreSaver;
     [SerializeField] private int silkReturn;
 
+    [Header("SFX")]
+    private AudioSource flyCrunch;
+
     // Start is called before the first frame update
     void Start()
     {
         silkManager = GameObject.FindObjectOfType<SilkManager>();
         scoreSaver = GameObject.FindObjectOfType<ScoreSaver>();
+        flyCrunch = GameObject.Find("FlyCrunchSFX").GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -26,6 +30,7 @@ public class Fly : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
+
             if (silkManager.silkCurrent + silkReturn <= 100)
             {
                 silkManager.silkCurrent += silkReturn;
@@ -34,6 +39,8 @@ public class Fly : MonoBehaviour
             {
                 silkManager.silkCurrent = 100;
             }
+
+            flyCrunch.Play();
             scoreSaver.flyCount++;
             Destroy(gameObject);
         }
