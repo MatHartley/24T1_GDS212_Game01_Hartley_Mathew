@@ -98,7 +98,7 @@ GameObject:
   - component: {fileID: 3673235845382683096}
   - component: {fileID: 6803988442822620365}
   m_Layer: 0
-  m_Name: Spider
+  m_Name: PlayerGooball
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -378,6 +378,7 @@ MonoBehaviour:
   grappleDistanceVector: {x: 0, y: 0}
   silkManager: {fileID: 0}
   silkCost: 0
+  silkShot: {fileID: 0}
 --- !u!1 &5768110393206489155
 GameObject:
   m_ObjectHideFlags: 0
