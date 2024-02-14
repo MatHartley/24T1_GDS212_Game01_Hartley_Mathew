@@ -5,10 +5,12 @@ using UnityEngine;
 public class DeathZone : MonoBehaviour
 {
     private SceneController sceneController;
+    private AudioSource deathSFX;
 
     private void Start()
     {
         sceneController = FindObjectOfType<SceneController>();
+        deathSFX = GameObject.Find("DeathSFX").GetComponent<AudioSource>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -17,7 +19,14 @@ public class DeathZone : MonoBehaviour
 
         if (collision.tag == "Player")
         {
-            sceneController.LoadWinScreen();
+            deathSFX.Play();
+            StartCoroutine(GameEnd());
         }
     }
+    private IEnumerator GameEnd()
+    {
+        yield return new WaitForSeconds(2);
+        sceneController.LoadWinScreen();
+    }
 }
+
